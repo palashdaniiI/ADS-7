@@ -13,10 +13,11 @@ class TPQueue {
   ITEM* tail;
   TPQueue::ITEM* create(const T& value) {
     ITEM* i = new ITEM;
-    i->tim=value;
-    i->next=nullptr;
+    i->tim = value;
+    i->next = nullptr;
     return i;
   }
+  
  public:
   TPQueue() :head(nullptr), tail(nullptr) {}
   T pop() {
@@ -36,28 +37,28 @@ class TPQueue {
     ITEM* temp = head;
     if (head && tail) {
        while (temp && (temp->tim).prior >= value.prior) {
-         tmp=temp;
-         temp=temp->next;
+         tmp = temp;
+         temp = temp->next;
        }
        if (temp == head && ((head->tim).prior == (i->tim).prior)) {
-         i->next=head->next;
-         head->next=i;
+         i->next = head->next;
+         head->next = i;
        } else if (temp == head && ((head->tim).prior >= (i->tim).prior)) {
-         i->next=head->next;
-         head->next=i;
+         i->next = head->next;
+         head->next = i;
        } else if (temp == head && ((head->tim).prior < (i->tim).prior)) {
          i->next = head;
-         head=i;
+         head = i;
        } else if (!temp) {
-         tail->next=i;
-         tail=i;
+         tail->next = i;
+         tail = i;
        } else {
-         tmp->next=i;
-         i->next=temp;
+         tmp->next = i;
+         i->next = temp;
        }
     } else {
-      head=create(value);
-      tail=head;
+      head = create(value);
+      tail = head;
     }
   }
 };
